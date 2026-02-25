@@ -1,30 +1,25 @@
-# Stock Market Kafka Real Time Data Engineering Project
+## Stock Market Kafka Real-Time Data Engineering Project 
 
-## Introduction 
-In this project, you will execute an End-To-End Data Engineering Project on Real-Time Stock Market Data using Kafka.
+This project demonstrates how to build an end-to-end real-time data engineering pipeline using stock market data. The main focus is on the operational side of data engineering, meaning designing, building, and managing a scalable data pipeline rather than just analyzing data.
 
-We are going to use different technologies such as Python, Amazon Web Services (AWS), Apache Kafka, Glue, Athena, and SQL.
+The pipeline simulates real-time stock market data streaming through **Apache Kafka**. A Python producer reads stock market data from a CSV file and publishes it to a Kafka topic. A Kafka consumer then processes the streaming data and stores it in **Amazon S3** for further use.
 
-## Architecture 
-<img src="Architecture.jpg">
+On the AWS side, multiple services are integrated:
 
-## Technology Used
-- Programming Language - Python
-- Amazon Web Service (AWS)
-1. S3 (Simple Storage Service)
-2. Athena
-3. Glue Crawler
-4. Glue Catalog
-5. EC2
-- Apache Kafka
+* **Amazon EC2** is used to host and run Kafka.
+* **Amazon S3** acts as the data lake where streaming data is stored.
+* **AWS Glue Crawler** scans the data stored in S3 and creates metadata tables.
+* **AWS Glue Data Catalog** stores the schema and table definitions.
+* **Amazon Athena** is used to query the stored data directly from S3 using SQL.
 
+The architecture showcases how real-time streaming data flows from ingestion (Kafka) to storage (S3), then to metadata management (Glue), and finally to analytics (Athena).
 
-## Dataset Used
-You can use any dataset, we are mainly interested in operation side of Data Engineering (building data pipeline) 
+Overall, this project highlights:
 
-Here is the dataset used in the video - https://github.com/darshilparmar/stock-market-kafka-data-engineering-project/blob/main/indexProcessed.csv
+* Real-time data ingestion using Apache Kafka
+* Cloud-based data lake architecture on AWS
+* Automated schema detection using Glue
+* Serverless querying using Athena
+* End-to-end integration between streaming systems and cloud analytics
 
-
-## Complete Video Tutorial 
-
-Video Link - https://www.youtube.com/embed/KerNf0NANMo
+It’s a practical example of how modern data engineering systems handle streaming financial data in a scalable and cost-effective way.
